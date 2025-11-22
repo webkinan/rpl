@@ -1,0 +1,685 @@
+/* About Section - Aesthetic & Elegant */
+.about {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    background-size: 200% 200%;
+    padding: 6rem 0;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Floating Shapes for About */
+.about-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.3;
+    animation: floatAboutShape 22s ease-in-out infinite;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+.about-shape-1 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    top: 10%;
+    left: 5%;
+    animation-duration: 25s;
+}
+
+.about-shape-2 {
+    width: 280px;
+    height: 280px;
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    bottom: 15%;
+    right: 10%;
+    animation-duration: 20s;
+    animation-delay: -5s;
+}
+
+.about-shape-3 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    top: 40%;
+    right: 30%;
+    animation-duration: 28s;
+    animation-delay: -10s;
+}
+
+.about-shape-4 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    bottom: 10%;
+    left: 20%;
+    animation-duration: 30s;
+    animation-delay: -8s;
+}
+
+@keyframes floatAboutShape {
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(10deg) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(-5deg) scale(0.9);
+    }
+}
+
+.about.visible .about-shape {
+    animation: shapePulse 3s ease-in-out infinite;
+}
+
+@keyframes shapePulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+}
+
+/* About Particles */
+.about-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    opacity: 0.5;
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+    animation: floatAboutParticle 18s ease-in-out infinite;
+}
+
+.about-particle-1 {
+    top: 20%;
+    left: 15%;
+    animation-duration: 20s;
+}
+
+.about-particle-2 {
+    top: 60%;
+    left: 80%;
+    animation-duration: 24s;
+    animation-delay: -4s;
+}
+
+.about-particle-3 {
+    top: 80%;
+    left: 30%;
+    animation-duration: 22s;
+    animation-delay: -8s;
+}
+
+.about-particle-4 {
+    top: 30%;
+    left: 60%;
+    animation-duration: 19s;
+    animation-delay: -3s;
+}
+
+.about-particle-5 {
+    top: 10%;
+    left: 90%;
+    animation-duration: 25s;
+    animation-delay: -10s;
+}
+
+@keyframes floatAboutParticle {
+
+    0%,
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-100px) translateX(50px) scale(1.2);
+        opacity: 0.2;
+    }
+}
+
+.about.visible .about-particle {
+    animation: particleBurst 1s ease-out forwards, floatAboutParticle 18s ease-in-out 1s infinite;
+}
+
+@keyframes particleBurst {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* About Grid & Cards */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transform-style: preserve-3d;
+}
+
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 25%, rgba(240, 147, 251, 0.1) 50%, rgba(118, 75, 162, 0.1) 75%, rgba(102, 126, 234, 0.1) 100%);
+    background-size: 300% 300%;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.about-card:hover {
+    transform: translateY(-15px) rotateY(5deg) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.about-card:hover::before {
+    opacity: 1;
+    animation: rainbowBorder 5s ease infinite;
+}
+
+@keyframes rainbowBorder {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.about-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.about-card:hover .about-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.about-card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2d3748;
+    transition: color 0.3s ease;
+}
+
+.about-card:hover .about-card-title {
+    color: #667eea;
+}
+
+.about-card-text {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+
+/* Decorative Corner for About Card */
+.about-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.about-corner-tr {
+    top: 0;
+    right: 0;
+    border-top: 2px solid #667eea;
+    border-right: 2px solid #667eea;
+    border-radius: 0 20px 0 0;
+}
+
+.about-corner-bl {
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px solid #764ba2;
+    border-left: 2px solid #764ba2;
+    border-radius: 0 0 0 20px;
+}
+
+.about-card:hover .about-corner {
+    opacity: 1;
+    width: 50px;
+    height: 50px;
+}
+
+/* ========================================
+   SCROLL ANIMATIONS & ENTRANCE EFFECTS
+   ======================================== */
+
+/* Staggered card animation */
+.about-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.about-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.about-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.about-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.about-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.about-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Enhanced Fade-in animation for cards with 3D effect */
+.about-card.fade-in {
+    opacity: 0;
+    transform: translateY(60px) scale(0.9) rotateX(15deg);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.about-card.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+/* Alternate entrance animations for variety */
+.about-card:nth-child(odd).fade-in {
+    transform: translateX(-80px) translateY(40px) scale(0.85) rotate(-5deg);
+}
+
+.about-card:nth-child(even).fade-in {
+    transform: translateX(80px) translateY(40px) scale(0.85) rotate(5deg);
+}
+
+.about-card:nth-child(odd).fade-in.visible,
+.about-card:nth-child(even).fade-in.visible {
+    transform: translateX(0) translateY(0) scale(1) rotate(0deg);
+}
+
+/* Enhanced Icon entrance animation with bounce */
+.about-card.visible .about-icon-wrapper {
+    animation: iconEntranceBounce 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards, iconPulse 3s ease-in-out 1.2s infinite;
+}
+
+@keyframes iconEntranceBounce {
+    0% {
+        transform: scale(0) rotate(-360deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.3) rotate(10deg);
+    }
+
+    70% {
+        transform: scale(0.9) rotate(-5deg);
+    }
+
+    85% {
+        transform: scale(1.1) rotate(3deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes iconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    50% {
+        transform: scale(1.08);
+        box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+    }
+}
+
+/* Title slide-in with wave effect */
+.about .section-title {
+    animation: slideInWave 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes slideInWave {
+    0% {
+        opacity: 0;
+        transform: translateX(-120px) rotate(-10deg);
+    }
+
+    60% {
+        transform: translateX(10px) rotate(2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+    }
+}
+
+/* Subtitle fade-in with bounce */
+.about .section-subtitle {
+    animation: fadeInBounce 1s ease-out 0.3s backwards;
+}
+
+@keyframes fadeInBounce {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content paragraph animation with slide */
+.about-content {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s;
+}
+
+.about-content.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Decorative line animation with glow */
+.about .section-decorative-line {
+    transform: scaleX(0);
+    animation: lineExpandGlow 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes lineExpandGlow {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+        box-shadow: 0 0 0 rgba(102, 126, 234, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
+    }
+
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(102, 126, 234, 0.4);
+    }
+}
+
+/* Card shimmer effect on scroll - enhanced */
+.about-card.visible::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 20%, rgba(255, 255, 255, 0.1) 40%, rgba(102, 126, 234, 0.3) 50%, rgba(255, 255, 255, 0.1) 60%, transparent 80%);
+    transform: rotate(45deg);
+    animation: shimmerEnhanced 2s ease-in-out 0.5s;
+}
+
+@keyframes shimmerEnhanced {
+    0% {
+        left: -150%;
+    }
+
+    100% {
+        left: 150%;
+    }
+}
+
+/* Card title animation */
+.about-card.visible .about-card-title {
+    animation: titleReveal 0.8s ease-out 0.6s backwards;
+}
+
+@keyframes titleReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        letter-spacing: 10px;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: normal;
+    }
+}
+
+/* Card text animation */
+.about-card.visible .about-card-text {
+    animation: textFadeIn 0.8s ease-out 0.8s backwards;
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Corner decoration animation */
+.about-card.visible .about-corner {
+    animation: cornerExpand 0.6s ease-out 1s forwards;
+}
+
+@keyframes cornerExpand {
+    0% {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    100% {
+        opacity: 0.5;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Floating animation for cards when visible */
+.about-card.visible {
+    animation: cardFloat 4s ease-in-out infinite;
+}
+
+@keyframes cardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Glow effect on hover - enhanced */
+.about-card.visible:hover {
+    animation: cardGlow 0.6s ease-out forwards;
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    100% {
+        box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25), 0 0 40px rgba(102, 126, 234, 0.15), inset 0 0 20px rgba(102, 126, 234, 0.05);
+    }
+}
+
+/* Title accent sparkle animation */
+.about .title-accent {
+    display: inline-block;
+    animation: sparkleRotate 2s ease-in-out infinite;
+}
+
+@keyframes sparkleRotate {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+
+    25% {
+        transform: scale(1.3) rotate(90deg);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+    }
+
+    75% {
+        transform: scale(1.3) rotate(270deg);
+        opacity: 0.7;
+    }
+}
+
+/* Responsive animations */
+@media (prefers-reduced-motion: reduce) {
+
+    .about-card,
+    .about-icon-wrapper,
+    .about .section-title,
+    .about .section-subtitle,
+    .about-content,
+    .about .section-decorative-line,
+    .about-particle,
+    .about-shape,
+    .about {
+        animation: none !important;
+        transition: opacity 0.3s ease, transform 0.3s ease !important;
+    }
+
+    .about-card.fade-in {
+        opacity: 1;
+        transform: none;
+    }
+
+    .about-card.fade-in.visible {
+        opacity: 1;
+        transform: none;
+    }
+}
